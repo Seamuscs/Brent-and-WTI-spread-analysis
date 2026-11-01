@@ -11,6 +11,14 @@ Both Brent and WTI spot prices can be found on FRED, the Federal Reserve Bank of
 
 # Methodology
 
-The first job is clean the data. I cleaned the data using pandas, indexing the data by date and removing days they did not have in common. I then removed any day that was not traded on by either benchmark, so no NaN data in the dataframes as they cannot be plotted. The next step was to then plot the spread. Though, you will see I plotted both benchmarks too as I wanted to illustrate where the spread comes from and identify key events in the historical data. I then calculated the mean and standard deviation using the describe function. I shall explain a limitation of this in the document. The next step is to calculate a z-score using the historical mean and standard deviation. This shows us how far any spot oil price deviates from the historical mean as a multiple of the historic standard deviation.
+Part I:
+The first job is clean the data. I cleaned the data using pandas, indexing the data by date and removing days they did not have in common. I then removed any day that was not traded on by either benchmark, so no NaN data in the data frames as they cannot be plotted. The next step was to then plot the spread. Though, you will see I plotted both benchmarks too as I wanted to illustrate where the spread comes from and identify key events in the historical data. I then calculated the mean and standard deviation using the describe function. I removed one of the limitations of the model by adjusting the spot prices for inflation by using the purchasing power index and calculating the spot prices value in today's dollars. The next step is to calculate a z-score using the historical mean and standard deviation. This shows us how far any spot oil price deviates from the historical mean as a multiple of the historic standard deviation. 
+
+Part II:
+I imported futures data from yahoo finance. Sadly, it does not date back as far as our original spot prices but there is enough data to work with. I cleaned the futures prices of Brent and WTI to then plot their spot and futures together to show the difference and the spread between the spot price and its future. After that, I imported the ADF test and the KPSS test. Each test reinforces the outcome of the other test which is why I used both to test for a stationary time series in our futures spread. The next thing to do is apply an Ornstein-Uhlenbeck process.
 
 Any and all findings can be found within the document.
+
+# Appendix
+
+For those who are more interested in the statistical methods I will include an appendix in the repository that will detail necessary knowledge of stochastic processes and derivations of the statistical tests I used in Part II.
